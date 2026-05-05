@@ -1,84 +1,31 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ekipman Kod Raporu - Giriş</title>
-<style>
-:root{--bg:#0a0e17;--surface:#111827;--accent:#00d4ff;--text:#e2e8f0;--text-muted:#64748b;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;}
-.container{max-width:400px;width:90%;background:var(--surface);border:1px solid #1f2d45;border-radius:16px;padding:40px;box-shadow:0 20px 40px rgba(0,0,0,0.4);}
-.logo{font-size:48px;margin-bottom:20px;text-align:center;background:linear-gradient(135deg,var(--accent),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-h1{font-size:28px;text-align:center;margin-bottom:30px;color:var(--text);}
-.input-group{position:relative;margin-bottom:20px;}
-input{width:100%;padding:14px 16px 14px 50px;border:2px solid #1f2d45;border-radius:10px;background:var(--bg);color:var(--text);font-size:16px;transition:all 0.3s;}
-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,212,255,0.1);}
-.input-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--text-muted);}
-.btn{width:100%;padding:14px;background:var(--accent);color:white;border:none;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;transition:all 0.3s;}
-.btn:hover{background:#00a3cc;transform:translateY(-2px);}
-.error{color:#ff6b6b;font-size:14px;margin-top:10px;text-align:center;display:none;}
-.success{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(16,185,129,0.95);color:white;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:600;display:none;}
-@media(max-width:480px){.container{padding:30px 20px;}}
-</style>
+<title>Test Şifre</title>
 </head>
-<body>
-<div class="container" id="loginForm">
-<div class="logo">⬡</div>
-<h1>Ekipman Raporu</h1>
-<p style="text-align:center;color:var(--text-muted);margin-bottom:30px;">Parola girin</p>
-
-<div class="input-group">
-<span class="input-icon">🔑</span>
-<input type="password" id="parolaInput" placeholder="Parola..." autocomplete="off">
-</div>
-
-<button class="btn" onclick="parolaKontrol()">Giriş Yap</button>
-<div class="error" id="errorMsg">❌ Yanlış parola!</div>
-</div>
-
-<div class="success" id="successPage">
-<div>
-✅ Giriş başarılı!<br>
-Rapor yükleniyor...
-<div style="margin-top:20px;font-size:14px;">3 saniye sonra rapor açılacak</div>
-</div>
-</div>
+<body style="font-family:Arial;background:black;color:white;padding:100px;text-align:center;">
+<h1 style="color:cyan;">Şifre Testi</h1>
+<input id="sifre" type="password" placeholder="1234 yaz" style="padding:20px;font-size:30px;width:400px;border:3px solid cyan;border-radius:15px;margin:20px;">
+<button onclick="test()" style="padding:20px 40px;font-size:25px;background:cyan;color:black;border:none;border-radius:15px;cursor:pointer;">TEST</button>
+<div id="mesaj" style="font-size:35px;margin-top:40px;"></div>
 
 <script>
-// === ŞİFRE KONTROL ===
-const DOGRU_PAROLA = "1234"; // BURAYI DEĞİŞTİRİN!
-
-function parolaKontrol() {
-  const parola = document.getElementById('parolaInput').value;
-  const errorMsg = document.getElementById('errorMsg');
-  const loginForm = document.getElementById('loginForm');
-  const successPage = document.getElementById('successPage');
+function test() {
+  var girilen = document.getElementById('sifre').value;
+  var mesaj = document.getElementById('mesaj');
   
-  if (parola === DOGRU_PAROLA) {
-    // ✅ Başarılı
-    loginForm.style.display = 'none';
-    successPage.style.display = 'flex';
-    
-    // 2 saniye sonra rapor göster
-    setTimeout(() => {
-      document.body.innerHTML = `
-        <iframe src="ekipman_raporu.html" style="width:100vw;height:100vh;border:none;position:fixed;top:0;left:0;z-index:1000;"></iframe>
-      `;
-    }, 2000);
-    
+  if(girilen == '1234') {
+    mesaj.innerHTML = '✅ <span style="color:lime;">DOĞRU ŞİFRE!</span><br>Rapor 3 saniye sonra...';
+    mesaj.style.color = 'lime';
+    setTimeout(function(){
+      window.location.href = 'ekipman_raporu.html';
+    }, 3000);
   } else {
-    // ❌ Hatalı
-    errorMsg.style.display = 'block';
-    document.getElementById('parolaInput').value = '';
-    setTimeout(() => errorMsg.style.display = 'none', 3000);
+    mesaj.innerHTML = '❌ <span style="color:red;">YANLIŞ!</span> Tekrar dene';
+    mesaj.style.color = 'red';
+    document.getElementById('sifre').value = '';
   }
 }
-
-// Enter tuşu
-document.getElementById('parolaInput').addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') parolaKontrol();
-});
 </script>
 </body>
 </html>
