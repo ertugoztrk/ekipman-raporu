@@ -1,31 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Test Şifre</title>
-</head>
-<body style="font-family:Arial;background:black;color:white;padding:100px;text-align:center;">
-<h1 style="color:cyan;">Şifre Testi</h1>
-<input id="sifre" type="password" placeholder="1234 yaz" style="padding:20px;font-size:30px;width:400px;border:3px solid cyan;border-radius:15px;margin:20px;">
-<button onclick="test()" style="padding:20px 40px;font-size:25px;background:cyan;color:black;border:none;border-radius:15px;cursor:pointer;">TEST</button>
-<div id="mesaj" style="font-size:35px;margin-top:40px;"></div>
-
-<script>
-function test() {
-  var girilen = document.getElementById('sifre').value;
-  var mesaj = document.getElementById('mesaj');
-  
-  if(girilen == '1234') {
-    mesaj.innerHTML = '✅ <span style="color:lime;">DOĞRU ŞİFRE!</span><br>Rapor 3 saniye sonra...';
-    mesaj.style.color = 'lime';
-    setTimeout(function(){
-      window.location.href = 'ekipman_raporu.html';
-    }, 3000);
-  } else {
-    mesaj.innerHTML = '❌ <span style="color:red;">YANLIŞ!</span> Tekrar dene';
-    mesaj.style.color = 'red';
-    document.getElementById('sifre').value = '';
-  }
-}
-</script>
+<body style="margin:0;">
+<iframe src="ekipman_raporu.html" style="width:100vw;height:100vh;border:0;"></iframe>
 </body>
 </html>
