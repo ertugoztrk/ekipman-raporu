@@ -6,52 +6,57 @@
 <title>Ekipman Kod Raporu - Giriş</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a0e17;--surface:#111827;--border:#1f2d45;--accent:#ffb81c;--accent-dark:#005cbf;--text:#e2e8f0;--text-muted:#94a3b8;}
+:root{--bg:#0a0e17;--surface:#111827;--border:#1f2d45;--accent:#f5c800;--accent-dark:#1a4fa0;--text:#e2e8f0;--text-muted:#94a3b8;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:linear-gradient(135deg,#0a0e17 0%,#1a1f2e 50%,#16213e 100%);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;}
-body::before{content:'';position:fixed;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#005cbf,#ffb81c,#005cbf);background-size:200% 100%;animation:gradientShift 3s ease infinite;}
+body::before{content:'';position:fixed;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#1a4fa0,#f5c800,#1a4fa0);background-size:200% 100%;animation:gradientShift 3s ease infinite;}
 @keyframes gradientShift{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
 
-.container{max-width:420px;width:100%;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:50px;box-shadow:0 25px 50px rgba(0,0,0,0.6);position:relative;overflow:hidden;}
-.container::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#005cbf,#ffb81c);}
+.container{max-width:480px;width:100%;background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:60px 50px;box-shadow:0 30px 60px rgba(0,0,0,0.7);position:relative;overflow:hidden;}
+.container::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#1a4fa0,#f5c800);}
 
-.logo{position:relative;display:flex;flex-direction:column;align-items:center;margin-bottom:25px;}
-.fbl-logo{width:72px !important;height:72px !important;border-radius:50%;border:3px solid rgba(255,184,28,0.4);box-shadow:0 8px 25px rgba(0,92,191,0.3);margin-bottom:12px;animation:pulse 2s ease-in-out infinite;object-fit:cover;}
-@keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 8px 25px rgba(0,92,191,0.3);}50%{transform:scale(1.03);box-shadow:0 12px 35px rgba(0,92,191,0.5);}}
+.logo{position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;margin-bottom:30px;gap:15px;}
+.fbl-logo{width:90px !important;height:90px !important;border-radius:12px;box-shadow:0 10px 30px rgba(26,79,160,0.4);object-fit:contain;background:var(--surface);padding:8px;}
+.logo-text-container{width:100%;text-align:center;}
+.logo-title{font-size:32px !important;font-weight:800;background:linear-gradient(135deg,#f5c800,#1a4fa0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:0;line-height:1.1;letter-spacing:-0.5px;}
+.logo-subtitle{font-size:14px !important;color:#f5c800;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin:0;}
 
-.logo-text{font-size:44px !important;font-weight:800;text-align:center;background:linear-gradient(135deg,#ffb81c,#005cbf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:0;line-height:1;}
-.logo-subtitle{font-size:13px !important;color:#ffb81c;font-weight:700;margin-top:6px;letter-spacing:2px;text-transform:uppercase;}
-
-h1{font-size:26px;text-align:center;margin-bottom:10px;color:var(--text);}
-.subtitle{text-align:center;color:var(--text-muted);font-size:15px;margin-bottom:35px;}
-.input-group{position:relative;margin-bottom:25px;}
-.input-icon{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:20px;}
-input{width:100%;padding:16px 18px 16px 55px;border:2px solid var(--border);border-radius:12px;background:var(--bg);color:var(--text);font-size:16px;font-family:'JetBrains Mono',monospace;transition:all 0.3s;}
-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(255,184,28,0.2);}
-.btn{width:100%;padding:16px;background:linear-gradient(135deg,#005cbf,#ffb81c);color:white;border:none;border-radius:12px;font-size:16px;font-weight:600;font-family:'JetBrains Mono',monospace;cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden;}
-.btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);transition:left 0.5s;}
-.btn:hover{background:linear-gradient(135deg,#004a99,#e6a700);transform:translateY(-2px);}
+h1{font-size:28px;text-align:center;margin-bottom:12px;color:var(--text);font-weight:700;}
+.subtitle{text-align:center;color:var(--text-muted);font-size:16px;margin-bottom:40px;line-height:1.4;}
+.input-group{position:relative;margin-bottom:28px;}
+.input-icon{position:absolute;left:20px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:22px;}
+input{width:100%;padding:18px 20px 18px 65px;border:2px solid var(--border);border-radius:14px;background:var(--bg);color:var(--text);font-size:17px;font-family:'JetBrains Mono',monospace;transition:all 0.3s;}
+input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(245,200,0,0.2);}
+.btn{width:100%;padding:18px;background:linear-gradient(135deg,#1a4fa0,#f5c800);color:white;border:none;border-radius:14px;font-size:17px;font-weight:700;font-family:'JetBrains Mono',monospace;cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden;box-shadow:0 8px 25px rgba(26,79,160,0.3);}
+.btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);transition:left 0.5s;}
+.btn:hover{background:linear-gradient(135deg,#153a7d,#e6b800);transform:translateY(-3px);box-shadow:0 12px 35px rgba(26,79,160,0.5);}
 .btn:hover::before{left:100%;}
-.error{color:#ff6b6b;font-size:14px;margin-top:15px;text-align:center;padding:10px;background:rgba(255,107,107,0.1);border-radius:8px;border-left:4px solid #ff6b6b;display:none;}
-.success{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#005cbf,#ffb81c);color:white;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:600;text-align:center;padding:20px;display:none;flex-direction:column;}
+.error{color:#ff6b6b;font-size:15px;margin-top:18px;text-align:center;padding:12px;background:rgba(255,107,107,0.1);border-radius:10px;border-left:4px solid #ff6b6b;display:none;}
+.success{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#1a4fa0,#f5c800);color:white;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700;text-align:center;padding:20px;display:none;flex-direction:column;}
 .success div{max-width:500px;}
-.loading{display:inline-block;width:24px;height:24px;border:3px solid rgba(255,255,255,0.3);border-radius:50%;border-top-color:white;animation:spin 1s ease-in-out infinite;margin-left:15px;}
+.loading{display:inline-block;width:28px;height:28px;border:4px solid rgba(255,255,255,0.3);border-radius:50%;border-top-color:white;animation:spin 1s ease-in-out infinite;margin-left:18px;}
 @keyframes spin{to{transform:rotate(360deg);}}
 
-@media(max-width:480px){
-.container{padding:40px 25px;margin:20px;border-radius:16px;}
-.fbl-logo{width:68px !important;height:68px !important;}
-.logo-text{font-size:40px !important;}
-.logo-subtitle{font-size:12px !important;}
+@media(max-width:500px){
+.container{max-width:100%;width:calc(100vw - 40px);padding:50px 30px;margin:20px;border-radius:20px;}
+.fbl-logo{width:80px !important;height:80px !important;}
+.logo-title{font-size:28px !important;}
+.logo-subtitle{font-size:13px !important;}
+}
+@media(max-width:400px){
+.container{padding:40px 25px;}
+.logo-title{font-size:26px !important;}
 }
 </style>
 </head>
 <body>
 <div class="container" id="loginForm">
 <div class="logo">
-<img src="https://share.google/sQQEj7WoBD0DRHZOK" alt="Fenerbahçe SK" class="fbl-logo" onerror="this.src='https://via.placeholder.com/72/005cbf/ffb81c?text=FB'">
-<div class="logo-text">FENERBAHÇE</div>
+<img src="https://assets.football-logos.cc/logos/turkey/1500x1500/fenerbahce.865697ea.png" alt="Fenerbahçe SK" class="fbl-logo" onerror="this.src='https://via.placeholder.com/90/1a4fa0/f5c800?text=FB'">
+<div class="logo-text-container">
+<div class="logo-title">FENERBAHÇE</div>
 <div class="logo-subtitle">SK</div>
+</div>
 </div>
 <h1>Ekipman Raporu</h1>
 <p class="subtitle">Erişim için parola gerekli</p>
@@ -74,7 +79,6 @@ input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(25
 </div>
 
 <script>
-// 🔥 PAROLAYI BURADA DEĞİŞTİRİN!
 const DOGRU_PAROLA = "1907";
 
 function parolaKontrol() {
