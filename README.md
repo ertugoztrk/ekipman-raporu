@@ -1,1 +1,1 @@
-# solid-kayıt-raporu
+# ekipman-raporu
